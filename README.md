@@ -8,6 +8,7 @@ ST10130105 – Shamaile Rehlamvu <br>
 ST10472876 – Teshaan Patel <br>
 
 ## Website design:
+Prototype link: https://www.figma.com/proto/gENqRR0dqdZOoJxUrt0Iqn/XHAX---Frames?node-id=3-11&t=w2YPp1rC5Eqt6Uti-1 <br>
 ### Home page:
 <img width="1440" height="1024" alt="Home" src="https://github.com/user-attachments/assets/f470124c-68f4-4857-8e92-5c3b9b88349e" />
 
