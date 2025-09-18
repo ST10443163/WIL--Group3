@@ -28,6 +28,7 @@ Prototype link: https://www.figma.com/proto/gENqRR0dqdZOoJxUrt0Iqn/XHAX---Frames
 <img width="1440" height="1024" alt="Contact" src="https://github.com/user-attachments/assets/2e7b99a3-93e6-4026-b014-6bba77ceb775" />
 
 ##Mobile app design:
+Prototype link: https://www.figma.com/proto/gENqRR0dqdZOoJxUrt0Iqn/XHAX---Frames?node-id=3-8&t=w2YPp1rC5Eqt6Uti-1 <br>
 ### Home page:
 <img width="393" height="852" alt="Home" src="https://github.com/user-attachments/assets/dc63efa3-dca6-4eda-bfc6-948654a7f12c" />
 
