@@ -1,26 +1,39 @@
-/*Body*/
+/*Body (The IIE, 2025)*/
 body {
     margin: 0;
     padding: 0;
-    background: orange;
+    /*Gradient background (W3schools, 2025)*/
+    background-image: radial-gradient(#FFBB00 40%, #FA4300 70%);
 }
 
-/*Hero section*/
+/*Hero section (The IIE, 2025)*/
 header {
     background: #87CEEB;
     color: #351F07;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+}
+header .center {
     text-align: center;
-    padding: 20px;
+    flex: 1;
 }
 header h1 {
+    font-size: 80px;
     margin: 0;
 }
 header p {
     font-style: italic;
-    margin-top: 5px;
+    margin: 0;
+    font-size: 30px;
+}
+.left img, .right img {
+    max-width: 180px;
+    height: auto;
 }
 
-/*Navigation bar*/
+/*Navigation bar (The IIE, 2025)*/
 nav {
     background: #6DB436;
     text-align: center;
@@ -36,7 +49,7 @@ nav a:hover {
     text-decoration: underline;
 }
 
-/*Dropdown menu*/
+/*Dropdown menu (The IIE, 2025)*/
 .dropdown {
     display: inline-block;
     position: relative;
@@ -67,19 +80,23 @@ nav a:hover {
     display: block;
 }
 
-/*Content boxes*/
+/*Content boxes (The IIE, 2025)*/
 .container {
     padding: 20px;
-    display: grid;
+    display: flex;
+    flex-direction: column;
     gap: 20px;
+    min-height: 60vh;
 }
 .box {
     background: #F1F0EC;
     border: 2px #351F07;
+    border-radius: 15px;
+    box-shadow: 10px 10px 5px gray;
     padding: 20px;
 }
 
-/*Forms*/
+/*Forms (The IIE, 2025)*/
 form {
     display: flex;
     flex-direction: column;
@@ -90,34 +107,49 @@ form input, form textarea, form select {
     border: 1px #351F07;
 }
 form button {
-    background: orange;
+    /*Gradient background (W3schools, 2025)*/
+    background-image: radial-gradient(#FA4300 30%, #FFBB00 60%);
     color: #351F07;
     border: #351F07;
     padding: 10px;
     font-weight: bold;
+    font-size: 20px;
     cursor: pointer;
-}
-form button:hover {
-    background: darkorange;
+    width: 150px;
+    height: 50px;
 }
 
-/*Courses layout*/
+/*Courses layout (The IIE, 2025)*/
 .courses-list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 15px;
 }
-.courses-box {
-    border: #351F07;
-    padding: 15px;
-    background: #F1F0EC;
+
+/*Contact layout*/
+.container-contact {
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    min-height: 60vh;
+    align-items: center;
+    justify-content: space-between;
 }
 
-/*Footer*/
+/*Footer (The IIE, 2025)*/
 footer {
-    background: #87CEEB;
-    text-align: center;
-    padding: 10px;
+    /*Gradient background (W3schools, 2025)*/
+    background-image: radial-gradient(#64B2DE 40%, #6DB436 70%);
     color: #351F07;
+    text-align: center;
+    margin-top: auto;
+    padding: 10px;
     margin-top: 20px;
 }
+
+/*
+Referencing:
+- The IIE. 2025. Web Development [WEDE5020 Module Manual]. The Independent Institute of Education: Unpublished.
+- W3schools. 2025. CSS Radial Gradients. [Online] Availible at: https://www.w3schools.com/css/css3_gradients_radial.asp [Accessed 30 September 2025].
+*/
