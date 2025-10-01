@@ -7,7 +7,7 @@ export default function App() {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.topbar}>
-        <Image source={require('./assets/Logo.png')} style={styles.logo} resizeMode="cover"/>
+        <Image source={require('assets/Logo.png')} style={styles.logo} resizeMode="cover"/>
       </View>
 
       <View style={styles.navRow}>
