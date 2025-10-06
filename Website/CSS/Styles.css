@@ -96,6 +96,14 @@ nav a:hover {
     padding: 20px;
 }
 
+.box:nth-child(odd) {
+    background-color: #F1F0EC;
+}
+.box:nth-child(even) {
+    background-color: #E8E8E8;
+}
+
+
 /*Forms (The IIE, 2025)*/
 form {
     display: flex;
@@ -147,6 +155,32 @@ footer {
     padding: 10px;
     margin-top: 20px;
 }
+
+blockquote {
+    font-style: italic;
+    background-color: #f9f9f9;
+    padding: 10px 20px;
+    border-left: 5px solid #FA4300;
+    margin: 10px 0;
+}
+
+#backToTop {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #351F07;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    display: none; /* hidden until user scrolls */
+}
+#backToTop:hover {
+    background-color: #6DB436;
+}
+
 
 /*
 Referencing:

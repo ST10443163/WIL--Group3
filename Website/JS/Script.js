@@ -36,6 +36,25 @@ function myMap() {
     var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
 }
 
+// Back to Top Button (The IIE, 2025)
+let backToTop = document.getElementById("backToTop");
+
+window.onscroll = function () {
+    if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+        backToTop.style.display = "block";
+    } else {
+        backToTop.style.display = "none";
+    }
+};
+
+function scrollToTop() {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
+
+
 /*
 Referencing:
 - The IIE. 2025. Web Development [WEDE5020 Module Manual]. The Independent Institute of Education: Unpublished.
