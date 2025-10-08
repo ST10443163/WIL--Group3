@@ -1,42 +1,87 @@
 import React, {useState} from "react";
-import { SafeAreaView, View, Text, TextInput, TouchableOpacity, ScrollView, StyleSheet, Image, Switch, SafeAreaViewBase } from "react-native";
+<<<<<<< HEAD
+import { View, Text, TextInput, TouchableOpacity, ScrollView, StyleSheet, Image, Switch, SafeAreaViewBase } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
+=======
+import { 
+  SafeAreaView, 
+  View, 
+  Text, 
+  TextInput, 
+  TouchableOpacity, 
+  ScrollView, 
+  StyleSheet, 
+  Image, 
+  Switch,
+  Alert 
+} from "react-native";
+
+type ScreenType = 'Home' | 'Courses' | 'Fees' | 'Contact';
+>>>>>>> 0f3d6af7a31101e589374083835531ff2a564125
 
 export default function App() {
-  const [screen, setscreen] = useState('Home');
+  const [screen, setScreen] = useState<ScreenType>('Home');
+
+  const renderScreen = () => {
+    switch(screen) {
+      case 'Home': return <HomeScreen />;
+      case 'Courses': return <CoursesScreen />;
+      case 'Fees': return <FeesScreen />;
+      case 'Contact': return <ContactScreen />;
+      default: return <HomeScreen />;
+    }
+  };
 
   return (
     <SafeAreaView style={styles.container}>
+      {/* Header */}
       <View style={styles.topbar}>
-        <Image source={require('assets/Logo.png')} style={styles.logo} resizeMode="cover"/>
+<<<<<<< HEAD
+        <Image source={require('./assets/logo.png')} style={styles.logo} resizeMode="cover"/>
+=======
+        <Text style={styles.logoText}>EMPOWERING SKILLS ACADEMY</Text>
+>>>>>>> 0f3d6af7a31101e589374083835531ff2a564125
       </View>
 
+      {/* Navigation */}
       <View style={styles.navRow}>
-        <TouchableOpacity style={[styles.navButton, screen === 'Home' && styles.navActive]} onPress={() => setscreen('Home')}>
+        <TouchableOpacity 
+          style={[styles.navButton, screen === 'Home' && styles.navActive]} 
+          onPress={() => setScreen('Home')}
+        >
           <Text style={styles.navText}>Home</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={[styles.navButton, screen === 'Courses' && styles.navActive]} onPress={() => setscreen('Courses')}>
+        <TouchableOpacity 
+          style={[styles.navButton, screen === 'Courses' && styles.navActive]} 
+          onPress={() => setScreen('Courses')}
+        >
           <Text style={styles.navText}>Courses</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={[styles.navButton, screen === 'Fees' && styles.navActive]} onPress={() => setscreen('Fees')}>
+        <TouchableOpacity 
+          style={[styles.navButton, screen === 'Fees' && styles.navActive]} 
+          onPress={() => setScreen('Fees')}
+        >
           <Text style={styles.navText}>Fees</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={[styles.navButton, screen === 'Contact' && styles.navActive]} onPress={() => setscreen('Contact')}>
+        <TouchableOpacity 
+          style={[styles.navButton, screen === 'Contact' && styles.navActive]} 
+          onPress={() => setScreen('Contact')}
+        >
           <Text style={styles.navText}>Contact</Text>
         </TouchableOpacity>
       </View>
 
-      <View style={styles.footerBar}>
-        {screen === 'Home' && <HomeScreen/>}
-        {screen === 'Courses' && <CoursesScreen/>}
-        {screen === 'Fees' && <FeesScreen/>}
-        {screen === 'Contact' && <ContactScreen/>}
+      {/* Main Content */}
+      <View style={styles.mainContent}>
+        {renderScreen()}
       </View>
 
+      {/* Footer */}
       <View style={styles.footerBar}>
-        <Image source={require('./assets/footerIcons.png')} style={styles.footerIcons} resizeMode="contain"/>
+        <Text style={styles.footerText}>© 2024 Empowering Skills Academy</Text>
       </View>
     </SafeAreaView>
   );
@@ -44,19 +89,23 @@ export default function App() {
 
 function HomeScreen() {
   return (
-    <ScrollView contentContainerStyle={styles.page}>
+    <ScrollView style={styles.scrollView} contentContainerStyle={styles.contentContainer}>
       <View style={styles.panel}>
-        <Text style={styles.panelTitle}>About us:</Text>
-        <View style={styles.boxLarge}/>
-
-        <Text style={styles.panelTitle}>Courses:</Text>
-        <View style={styles.summaryBox}>
-          <Text style={styles.smallText}>6 Week Courses:</Text>
-          <Text style={styles.smallText}>6 Month Courses:</Text>
+        <Text style={styles.panelTitle}>About Us</Text>
+        <View style={styles.placeholderBox}>
+          <Text style={styles.placeholderText}>Company Information</Text>
         </View>
 
-        <Text style={styles.panelTitle}>Testimonials:</Text>
-        <View style={styles.boxLarge}/>
+        <Text style={styles.panelTitle}>Our Courses</Text>
+        <View style={styles.courseSummary}>
+          <Text style={styles.courseItem}>• 6 Week Courses</Text>
+          <Text style={styles.courseItem}>• 6 Month Courses</Text>
+        </View>
+
+        <Text style={styles.panelTitle}>Testimonials</Text>
+        <View style={styles.placeholderBox}>
+          <Text style={styles.placeholderText}>Student Reviews</Text>
+        </View>
       </View>
     </ScrollView>
   );
@@ -64,39 +113,33 @@ function HomeScreen() {
 
 function CoursesScreen() {
   return (
-    <ScrollView contentContainerStyle={styles.page}>
-      <View style={styles.colPanel}>
-        <View style={styles.courseSection}>
-          <Text style={styles.h2}>6 Week Courses:</Text>
+    <ScrollView style={styles.scrollView} contentContainerStyle={styles.contentContainer}>
+      <View style={styles.panel}>
+        <Text style={styles.sectionTitle}>6 Week Courses</Text>
+        
+        <View style={styles.courseCard}>
+          <Text style={styles.courseName}>First Aid Training</Text>
+          <Text style={styles.courseFee}>Fee: R1500</Text>
+          <Text style={styles.courseDescription}>Purpose: To provide first aid awareness and basic life support</Text>
+          <Text style={styles.contentTitle}>Course Content:</Text>
+          <Text style={styles.bulletPoint}>• Wounds and bleeding</Text>
+          <Text style={styles.bulletPoint}>• Burns and fractures</Text>
+          <Text style={styles.bulletPoint}>• Emergency scene management</Text>
+          <Text style={styles.bulletPoint}>• Cardio-Pulmonary Resuscitation (CPR)</Text>
+          <Text style={styles.bulletPoint}>• Respiratory distress (Choking)</Text>
+        </View>
 
-          <View style={styles.card}>
-            <View style={styles.cardTitle}>First Aid:</View>
-            <Text style={styles.smallText}>Fees: R1500</Text>
-            <Text style={styles.smallText}>Purpose: To provide first aid awareness and basic life support</Text>
-            <Text style={styles.smallTextBold}>Content:</Text>
-            <View style={styles.bullets}>
-              <Text>Wounds and bleeding</Text>
-              <Text>Burns and fractures</Text>
-              <Text>Emergency scene management</Text>
-              <Text>Cardio-Pulmonary Resuscitation (CPR)</Text>
-              <Text>Respitory distress e.g., Choking</Text>
-            </View>
-          </View>
-
-          <Text style={[styles.h2, {marginTop: 12}]}>6 Month Courses:</Text>
-
-          <View style={styles.card}>
-            <Text style={styles.cardTitle}>Life Skills:</Text>
-            <Text style={styles.smallText}>Fees: R750</Text>
-            <Text style={styles.smallText}>Purpose: To provide skills to navigate basic life necessities</Text>
-            <Text style={styles.smallTextBold}>Content:</Text>
-            <View style={styles.bullets}>
-              <Text>Opening a bank account</Text>
-              <Text>Basic labour law (know your rights)</Text>
-              <Text>Basic reading and writing literacy</Text>
-              <Text>Basic numeric literacy</Text>
-            </View>
-          </View>
+        <Text style={styles.sectionTitle}>6 Month Courses</Text>
+        
+        <View style={styles.courseCard}>
+          <Text style={styles.courseName}>Life Skills</Text>
+          <Text style={styles.courseFee}>Fee: R750</Text>
+          <Text style={styles.courseDescription}>Purpose: To provide skills to navigate basic life necessities</Text>
+          <Text style={styles.contentTitle}>Course Content:</Text>
+          <Text style={styles.bulletPoint}>• Opening a bank account</Text>
+          <Text style={styles.bulletPoint}>• Basic labour law</Text>
+          <Text style={styles.bulletPoint}>• Basic reading and writing</Text>
+          <Text style={styles.bulletPoint}>• Basic numeric literacy</Text>
         </View>
       </View>
     </ScrollView>
@@ -104,68 +147,91 @@ function CoursesScreen() {
 }
 
 function FeesScreen() {
-  //Simple form state
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
-  const [subcribe, setSubscribe] = useState('');
 
-  //Fake calculation
-  const firstAid = 1500;
-  const lifeSkills = 750;
-  const subtotal = firstAid + lifeSkills;
+  const courses = [
+    { name: 'First Aid', fee: 1500 },
+    { name: 'Life Skills', fee: 750 }
+  ];
+
+  const subtotal = courses.reduce((sum, course) => sum + course.fee, 0);
   const discount = subtotal * 0.05;
   const total = subtotal - discount;
 
+  const handleEnroll = () => {
+    Alert.alert('Success', 'Enrollment Submitted!');
+  };
+
   return (
-    <ScrollView contentContainerStyle={styles.page}>
-      <View style={styles.formPanel}>
-        <Text style={styles.h3}>Enhance your skills by signing up</Text>
+    <ScrollView style={styles.scrollView} contentContainerStyle={styles.contentContainer}>
+      <View style={styles.panel}>
+        <Text style={styles.sectionTitle}>Enrollment Form</Text>
+        
+        <TextInput
+          style={styles.input}
+          placeholder="Full Name"
+          value={name}
+          onChangeText={setName}
+        />
+        
+        <TextInput
+          style={styles.input}
+          placeholder="Email Address"
+          value={email}
+          onChangeText={setEmail}
+          keyboardType="email-address"
+        />
+        
+        <TextInput
+          style={styles.input}
+          placeholder="Phone Number"
+          value={phone}
+          onChangeText={setPhone}
+          keyboardType="phone-pad"
+        />
 
-        <Text style={styles.label}>Name:</Text>
-        <TextInput style={styles.input} value={name} onChangeText={setName} placeholder="Name"/>
-
-        <Text style={styles.label}>Name:</Text>
-        <TextInput style={styles.input} value={email} onChangeText={setEmail} placeholder="email"/>
-
-        <Text style={styles.label}>Name:</Text>
-        <TextInput style={styles.input} value={phone} onChangeText={setPhone} placeholder="Phone"/>
-
-        <Text style={[styles.h4, {marginTop: 8}]}>Courses</Text>
-        <View style={styles.selectBox}>
-          <Text style={styles.smallText}>6 Week Courses - R1500</Text>
-          <Text style={styles.smallText}>First Aid</Text>
-          <Text style={styles.smallText}>Sewing</Text>
-          <Text style={styles.smallText}>Lanscaping</Text>
-
-
-          <Text style={styles.smallText}>6 Month Courses - R750</Text>
-          <Text style={styles.smallText}>Life Skills</Text>
-          <Text style={styles.smallText}>Child Minding</Text>
-          <Text style={styles.smallText}>Cooking</Text>
-          <Text style={styles.smallText}>Garden Maintenance</Text>
+        <Text style={styles.subTitle}>Available Courses</Text>
+        <View style={styles.courseList}>
+          <Text style={styles.courseCategory}>6 Week Courses (R1500 each):</Text>
+          <Text style={styles.courseItem}>• First Aid</Text>
+          <Text style={styles.courseItem}>• Sewing</Text>
+          <Text style={styles.courseItem}>• Landscaping</Text>
+          
+          <Text style={styles.courseCategory}>6 Month Courses (R750 each):</Text>
+          <Text style={styles.courseItem}>• Life Skills</Text>
+          <Text style={styles.courseItem}>• Child Minding</Text>
+          <Text style={styles.courseItem}>• Cooking</Text>
+          <Text style={styles.courseItem}>• Garden Maintenance</Text>
         </View>
 
-        <View style={styles.priceRow}>
-          <View>
+        <Text style={styles.subTitle}>Fee Calculation</Text>
+        <View style={styles.priceBreakdown}>
+          <View style={styles.priceRow}>
             <Text>First Aid:</Text>
-            <Text>Life Skills:</Text>
-            <Text style={{fontWeight: '700'}}>Subtotal:</Text>
-            <Text>Discount</Text>
-            <Text style={{fontWeight: '700'}}>Total:</Text>
+            <Text>R1500</Text>
           </View>
-
-          <View style={{alignItems: 'flex-end'}}>
-            <Text>R{firstAid}</Text>
-            <Text>R{lifeSkills}</Text>
-            <Text>R{subtotal}</Text>
+          <View style={styles.priceRow}>
+            <Text>Life Skills:</Text>
+            <Text>R750</Text>
+          </View>
+          <View style={styles.priceRow}>
+            <Text style={styles.boldText}>Subtotal:</Text>
+            <Text style={styles.boldText}>R{subtotal}</Text>
+          </View>
+          <View style={styles.priceRow}>
+            <Text>Discount (5%):</Text>
             <Text>R{discount.toFixed(2)}</Text>
-            <Text>R{total.toFixed(2)}</Text>
+          </View>
+          <View style={styles.priceRow}>
+            <Text style={styles.boldText}>Total:</Text>
+            <Text style={styles.boldText}>R{total.toFixed(2)}</Text>
           </View>
         </View>
 
-        <TouchableOpacity style={styles.checkoutButton} onPress={() => alert('Checkout(demo)')}>
-          <Text style={styles.checkoutText}>Checkout</Text>
+        <TouchableOpacity style={styles.actionButton} onPress={handleEnroll}>
+          <Text style={styles.actionButtonText}>Enroll Now</Text>
         </TouchableOpacity>
       </View>
     </ScrollView>
@@ -176,92 +242,318 @@ function ContactScreen() {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
-  const [messege, setMessege] = useState('');
+  const [message, setMessage] = useState('');
   const [subscribe, setSubscribe] = useState(false);
 
+  const handleSubmit = () => {
+    Alert.alert('Success', 'Message Sent!');
+  };
+
   return (
-    <ScrollView contentContainerStyle={styles.page}>
-      <View style={styles.contactPanel}>
-        <View style={styles.contactInfoBox}>
-          <Text style={styles.smallText}>Email: info@empowering.co.za</Text>
-          <Text style={styles.smallText}>Phone: 555-555-5555</Text>
-          <Text style={styles.smallText}>Cell/Whatsapp: 666-666-6666</Text>
+    <ScrollView style={styles.scrollView} contentContainerStyle={styles.contentContainer}>
+      <View style={styles.panel}>
+        <Text style={styles.sectionTitle}>Contact Information</Text>
+        
+        <View style={styles.contactInfo}>
+          <Text style={styles.contactItem}>📧 info@empowering.co.za</Text>
+          <Text style={styles.contactItem}>📞 555-555-5555</Text>
+          <Text style={styles.contactItem}>📱 666-666-6666</Text>
         </View>
 
-        <View style={styles.mapBox}>
-          <Text style={styles.mapPin}>📍</Text>
+        <Text style={styles.subTitle}>Our Locations</Text>
+        <View style={styles.locationBox}>
+          <Text style={styles.locationText}>📍 Main Campus</Text>
         </View>
-        <View style={styles.mapBox}>
-          <Text style={styles.mapPin}>📍</Text>
+        <View style={styles.locationBox}>
+          <Text style={styles.locationText}>📍 Branch Office 1</Text>
         </View>
-        <View style={styles.mapBox}>
-          <Text style={styles.mapPin}>📍</Text>
+        <View style={styles.locationBox}>
+          <Text style={styles.locationText}>📍 Branch Office 2</Text>
         </View>
 
-        <Text style={styles.panelTitle}>Messege us:</Text>
-        <TextInput style={styles.input} value={firstName} onChangeText={setFirstName} placeholder="First name" />
-        <TextInput style={styles.input} value={lastName} onChangeText={setLastName} placeholder="Last name" />
-        <TextInput style={styles.input} value={email} onChangeText={setEmail} placeholder="Email" />
-        <TextInput style={[styles.input, { height: 100 }]} value={messege} onChangeText={setMessege} placeholder="Messege" multiline />
+        <Text style={styles.subTitle}>Send us a Message</Text>
+        <TextInput
+          style={styles.input}
+          placeholder="First Name"
+          value={firstName}
+          onChangeText={setFirstName}
+        />
+        <TextInput
+          style={styles.input}
+          placeholder="Last Name"
+          value={lastName}
+          onChangeText={setLastName}
+        />
+        <TextInput
+          style={styles.input}
+          placeholder="Email Address"
+          value={email}
+          onChangeText={setEmail}
+          keyboardType="email-address"
+        />
+        <TextInput
+          style={[styles.input, styles.textArea]}
+          placeholder="Your Message"
+          value={message}
+          onChangeText={setMessage}
+          multiline
+          numberOfLines={4}
+        />
 
-
-        <View style={styles.subRow}>
+        <View style={styles.switchContainer}>
           <Switch value={subscribe} onValueChange={setSubscribe} />
-          <Text style={{ marginLeft: 8 }}>Subscribe to mailing list</Text>
+          <Text style={styles.switchLabel}>Subscribe to our newsletter</Text>
         </View>
 
-        <TouchableOpacity style={styles.submitButton} onPress={() => alert('Message sent (demo)')}>
-          <Text style={styles.submitText}>Submit</Text>
+        <TouchableOpacity style={styles.actionButton} onPress={handleSubmit}>
+          <Text style={styles.actionButtonText}>Send Message</Text>
         </TouchableOpacity>
       </View>
     </ScrollView>
   );
 }
 
-//Styling (The IIE, 2025)
 const styles = StyleSheet.create({
-  container: {flex: 1, backgroundColor: '#FFBB00'},
-  topbar: {height: 80, backgroundColor: '#64B2DE', alignItems: "center", justifyContent: 'center'},
-  logo: {width: "95%", height: 60},
-  navRow: {flexDirection: "row", justifyContent: "space-around", paddingVertical: 8, backgroundColor: '#6DB436'},
-  navButton: {paddingVertical: 6, paddingHorizontal: 8},
-  navActive: {borderBottomWidth: 3, borderColor: '#333'},
-  navText: {fontWeight: "700"},
-  screenWrap: {flex: 1},
-
-  page: {padding: 12},
-  panel: {backgroundColor: '#F1F0EC', padding: 8, borderRadius: 4},
-  panelTitle: {fontWeight: "700", marginTop: 10, marginBottom: 6},
-  boxLarge: {height: 100, backgroundColor: '#efefef', borderWidth: 2, borderColor: '#d8b14a'},
-  summaryBox: {backgroundColor: '#efefef', padding: 8, borderWidth: 2, borderColor: '#d8b14a'},
-  smallText: {fontSize: 12, marginVertical: 2},
-  smallTextBold: {fontSize: 12, fontWeight: '700', marginTop: 6},
-
-  colPanel: {backgroundColor: '#'},
-  courseSection: { paddingBottom: 24 },
-  h2: { fontSize: 20, fontWeight: '900', textAlign: 'center' },
-  card: { backgroundColor: '#fff', padding: 12, borderWidth: 2, borderColor: '#d8b14a', marginTop: 8 },
-  cardTitle: { fontWeight: '900', fontSize: 16, marginBottom: 6 },
-  bullets: { marginLeft: 8 },
-
-  formPanel: { backgroundColor: '#fff0e6', padding: 12, borderRadius: 4 },
-  h3: { fontWeight: '900', fontSize: 16, textAlign: 'center' },
-  h4: { fontWeight: '700' },
-  label: { marginTop: 8 },
-  input: { borderWidth: 1, borderColor: '#999', padding: 8, marginTop: 4, backgroundColor: '#fff' },
-  selectBox: { borderWidth: 1, borderColor: '#999', padding: 8, marginTop: 6, backgroundColor: '#fff' },
-  priceRow: { flexDirection: 'row', justifyContent: 'space-between', marginTop: 12 },
-  checkoutButton: { backgroundColor: '#ffbe00', padding: 12, marginTop: 12, alignItems: 'center', borderRadius: 4 },
-  checkoutText: { fontWeight: '900' },
-
-  contactPanel: { backgroundColor: '#fff0e6', padding: 12, borderRadius: 4 },
-  contactInfoBox: { backgroundColor: '#eee', padding: 8, borderWidth: 1, borderColor: '#999' },
-  mapBox: { height: 70, backgroundColor: '#ddd', marginTop: 8, alignItems: 'center', justifyContent: 'center' },
-  mapPin: { fontSize: 28 },
-  subRow: { flexDirection: 'row', alignItems: 'center', marginTop: 8 },
-  submitButton: { backgroundColor: '#ffbe00', padding: 12, marginTop: 12, alignItems: 'center', borderRadius: 4 },
-  submitText: { fontWeight: '900' },
-
-  footerBar: { height: 60, backgroundColor: '#2d8a3f', alignItems: 'center', justifyContent: 'center' },
-  footerIcons: { width: '95%', height: 40 },
-})
+  container: {
+    flex: 1,
+    backgroundColor: '#FFBB00',
+  },
+  topbar: {
+    height: 80,
+    backgroundColor: '#64B2DE',
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingHorizontal: 10,
+  },
+  logoText: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: '#FFFFFF',
+    textAlign: 'center',
+  },
+  navRow: {
+    flexDirection: 'row',
+    backgroundColor: '#6DB436',
+    paddingVertical: 10,
+  },
+  navButton: {
+    flex: 1,
+    alignItems: 'center',
+    paddingVertical: 8,
+  },
+  navActive: {
+    borderBottomWidth: 3,
+    borderBottomColor: '#333333',
+  },
+  navText: {
+    fontWeight: 'bold',
+    color: '#333333',
+  },
+  mainContent: {
+    flex: 1,
+  },
+  scrollView: {
+    flex: 1,
+  },
+  contentContainer: {
+    padding: 16,
+    paddingBottom: 20,
+  },
+  panel: {
+    backgroundColor: '#FFFFFF',
+    borderRadius: 8,
+    padding: 16,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 3,
+  },
+  panelTitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginBottom: 12,
+    color: '#333333',
+  },
+  sectionTitle: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginBottom: 16,
+    color: '#2d8a3f',
+  },
+  subTitle: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    marginTop: 16,
+    marginBottom: 8,
+    color: '#333333',
+  },
+  placeholderBox: {
+    height: 100,
+    backgroundColor: '#f0f0f0',
+    borderRadius: 6,
+    borderWidth: 2,
+    borderColor: '#d8b14a',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: 16,
+  },
+  placeholderText: {
+    color: '#666666',
+    fontStyle: 'italic',
+  },
+  courseSummary: {
+    backgroundColor: '#f9f9f9',
+    padding: 12,
+    borderRadius: 6,
+    borderWidth: 1,
+    borderColor: '#d8b14a',
+    marginBottom: 16,
+  },
+  courseCard: {
+    backgroundColor: '#f8f8f8',
+    padding: 16,
+    borderRadius: 8,
+    borderWidth: 2,
+    borderColor: '#d8b14a',
+    marginBottom: 16,
+  },
+  courseName: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    marginBottom: 8,
+    color: '#333333',
+  },
+  courseFee: {
+    fontSize: 14,
+    fontWeight: '600',
+    marginBottom: 4,
+    color: '#2d8a3f',
+  },
+  courseDescription: {
+    fontSize: 14,
+    marginBottom: 8,
+    color: '#666666',
+  },
+  contentTitle: {
+    fontSize: 14,
+    fontWeight: 'bold',
+    marginBottom: 6,
+    color: '#333333',
+  },
+  bulletPoint: {
+    fontSize: 14,
+    marginLeft: 8,
+    marginBottom: 2,
+    color: '#666666',
+  },
+  input: {
+    borderWidth: 1,
+    borderColor: '#cccccc',
+    borderRadius: 6,
+    padding: 12,
+    marginBottom: 12,
+    fontSize: 16,
+    backgroundColor: '#ffffff',
+  },
+  textArea: {
+    height: 100,
+    textAlignVertical: 'top',
+  },
+  courseList: {
+    backgroundColor: '#f9f9f9',
+    padding: 12,
+    borderRadius: 6,
+    borderWidth: 1,
+    borderColor: '#cccccc',
+    marginBottom: 16,
+  },
+  courseCategory: {
+    fontSize: 14,
+    fontWeight: 'bold',
+    marginTop: 8,
+    marginBottom: 4,
+    color: '#333333',
+  },
+  courseItem: {
+    fontSize: 14,
+    marginLeft: 8,
+    marginBottom: 2,
+    color: '#666666',
+  },
+  priceBreakdown: {
+    backgroundColor: '#f9f9f9',
+    padding: 12,
+    borderRadius: 6,
+    marginBottom: 16,
+  },
+  priceRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: 6,
+  },
+  boldText: {
+    fontWeight: 'bold',
+  },
+  contactInfo: {
+    backgroundColor: '#f0f8ff',
+    padding: 16,
+    borderRadius: 6,
+    borderWidth: 1,
+    borderColor: '#64B2DE',
+    marginBottom: 16,
+  },
+  contactItem: {
+    fontSize: 16,
+    marginBottom: 8,
+    color: '#333333',
+  },
+  locationBox: {
+    height: 70,
+    backgroundColor: '#f0f0f0',
+    borderRadius: 6,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: 8,
+    borderWidth: 1,
+    borderColor: '#cccccc',
+  },
+  locationText: {
+    fontSize: 16,
+    color: '#666666',
+  },
+  switchContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 16,
+  },
+  switchLabel: {
+    marginLeft: 12,
+    fontSize: 16,
+    color: '#333333',
+  },
+  actionButton: {
+    backgroundColor: '#ffbe00',
+    padding: 16,
+    borderRadius: 8,
+    alignItems: 'center',
+  },
+  actionButtonText: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#333333',
+  },
+  footerBar: {
+    height: 60,
+    backgroundColor: '#2d8a3f',
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingHorizontal: 10,
+  },
+  footerText: {
+    color: '#FFFFFF',
+    fontSize: 14,
+    fontWeight: 'bold',
+  },
+});
