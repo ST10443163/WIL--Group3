@@ -464,6 +464,50 @@ html {
   }
 }
 
+/* Testimonials blockquote styling (The IIE, 2025) */
+#testimonials {
+    background-color: #FFBB00; 
+    padding: 40px;
+    text-align: center;
+    color: #351F07;
+}
+
+blockquote {
+    background-color: #fff;
+    border-left: 6px solid #FA4300; 
+    margin: 20px auto;
+    padding: 15px 30px;
+    max-width: 700px;
+    color: #351F07; 
+    font-style: italic;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(53, 31, 7, 0.1);
+}
+
+blockquote footer {
+    margin-top: 10px;
+    font-weight: bold;
+    color: #FA4300; 
+}
+html {
+  scroll-behavior: smooth;
+}
+
+
+#contact-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #FA4300;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 50%;
+  text-decoration: none;
+  font-size: 24px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+
+
 /*
 Referencing:
 - The IIE. 2025. Web Development [WEDE5020 Module Manual]. The Independent Institute of Education: Unpublished.
