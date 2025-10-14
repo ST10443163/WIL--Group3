@@ -1,10 +1,8 @@
 import React, {useState} from "react";
-<<<<<<< HEAD
-import { View, Text, TextInput, TouchableOpacity, ScrollView, StyleSheet, Image, Switch, SafeAreaViewBase } from "react-native";
+
 import { SafeAreaView } from "react-native-safe-area-context";
-=======
+
 import { 
-  SafeAreaView, 
   View, 
   Text, 
   TextInput, 
@@ -17,7 +15,6 @@ import {
 } from "react-native";
 
 type ScreenType = 'Home' | 'Courses' | 'Fees' | 'Contact';
->>>>>>> 0f3d6af7a31101e589374083835531ff2a564125
 
 export default function App() {
   const [screen, setScreen] = useState<ScreenType>('Home');
@@ -36,11 +33,9 @@ export default function App() {
     <SafeAreaView style={styles.container}>
       {/* Header */}
       <View style={styles.topbar}>
-<<<<<<< HEAD
+
         <Image source={require('./assets/logo.png')} style={styles.logo} resizeMode="cover"/>
-=======
         <Text style={styles.logoText}>EMPOWERING SKILLS ACADEMY</Text>
->>>>>>> 0f3d6af7a31101e589374083835531ff2a564125
       </View>
 
       {/* Navigation */}
