@@ -87,9 +87,22 @@ function HomeScreen() {
     <ScrollView style={styles.scrollView} contentContainerStyle={styles.contentContainer}>
       <View style={styles.panel}>
         <Text style={styles.panelTitle}>About Us</Text>
-        <View style={styles.placeholderBox}>
-          <Text style={styles.placeholderText}>Company Information</Text>
-        </View>
+        <Text style={styles.aboutText}> 
+         Empowering the Nation was established in 2018 in Johannesburg to provide 
+         valuable skills training for domestic workers and gardeners. Founded by 
+         Precious Radebe, the organization aims to uplift community members by 
+         teaching professional skills that increase employability and income potential. 
+         Hundreds of learners have graduated from both the six-month Learnerships and 
+         six-week Short Skills Training programmes, building brighter futures for 
+         themselves and their families.
+       </Text>
+   
+
+
+
+
+  
+
 
         <Text style={styles.panelTitle}>Our Courses</Text>
         <View style={styles.courseSummary}>
@@ -110,7 +123,7 @@ function CoursesScreen() {
   return (
     <ScrollView style={styles.scrollView} contentContainerStyle={styles.contentContainer}>
       <View style={styles.panel}>
-        <Text style={styles.sectionTitle}>6 Week Courses</Text>
+        <Text style={styles.sectionTitle}>6 Month Courses</Text>
         
         <View style={styles.courseCard}>
           <Text style={styles.courseName}>First Aid Training</Text>
@@ -124,19 +137,78 @@ function CoursesScreen() {
           <Text style={styles.bulletPoint}>• Respiratory distress (Choking)</Text>
         </View>
 
-        <Text style={styles.sectionTitle}>6 Month Courses</Text>
-        
+        <View style={styles.courseCard}>
+          <Text style={styles.courseName}>Sewing</Text>
+          <Text style={styles.courseFee}>Fee: R1500</Text>
+          <Text style={styles.courseDescription}>Purpose: To provide alterations and new garment tailoring services</Text>
+          <Text style={styles.contentTitle}>Course Content:</Text>
+          <Text style={styles.bulletPoint}>• Types of stitches</Text>
+          <Text style={styles.bulletPoint}>• Threading a sewing machine</Text>
+          <Text style={styles.bulletPoint}>• Sewing buttons, zips, hems and seams</Text>
+          <Text style={styles.bulletPoint}>• Alterations</Text>
+          <Text style={styles.bulletPoint}>• Designing and sewing new garments</Text>
+        </View>
+
+        <View style={styles.courseCard}>
+          <Text style={styles.courseName}>Landscaping</Text>
+          <Text style={styles.courseFee}>Fee: R1500</Text>
+          <Text style={styles.courseDescription}>Purpose: To provide landscaping services for new and established gardens</Text>
+          <Text style={styles.contentTitle}>Course Content:</Text>
+          <Text style={styles.bulletPoint}>• Indigenous and exotic plants and trees</Text>
+          <Text style={styles.bulletPoint}>• Fixed structures (fountains, statues, benches, tables, built-in braai)</Text>
+          <Text style={styles.bulletPoint}>• Balancing of plants and trees in a garden</Text>
+          <Text style={styles.bulletPoint}>• Aestetics of plant shapes and colors</Text>
+          <Text style={styles.bulletPoint}>• Garden layout</Text>
+        </View>
+
         <View style={styles.courseCard}>
           <Text style={styles.courseName}>Life Skills</Text>
-          <Text style={styles.courseFee}>Fee: R750</Text>
+          <Text style={styles.courseFee}>Fee: R1500</Text>
           <Text style={styles.courseDescription}>Purpose: To provide skills to navigate basic life necessities</Text>
           <Text style={styles.contentTitle}>Course Content:</Text>
           <Text style={styles.bulletPoint}>• Opening a bank account</Text>
-          <Text style={styles.bulletPoint}>• Basic labour law</Text>
-          <Text style={styles.bulletPoint}>• Basic reading and writing</Text>
+          <Text style={styles.bulletPoint}>• Basic labour law (know your rights)</Text>
+          <Text style={styles.bulletPoint}>• Basic reading and writing literacy</Text>
           <Text style={styles.bulletPoint}>• Basic numeric literacy</Text>
         </View>
-      </View>
+
+        <Text style={styles.sectionTitle}>6 Week Courses</Text>
+        
+        <View style={styles.courseCard}>
+          <Text style={styles.courseName}>Child Minding</Text>
+          <Text style={styles.courseFee}>Fee: R750</Text>
+          <Text style={styles.courseDescription}>Purpose: To provide basic child and baby care</Text>
+          <Text style={styles.contentTitle}>Course Content:</Text>
+          <Text style={styles.bulletPoint}>• birth to six-month old baby needs</Text>
+          <Text style={styles.bulletPoint}>• seven-month to one year old needs</Text>
+          <Text style={styles.bulletPoint}>• Toddler needs</Text>
+          <Text style={styles.bulletPoint}>• Educational toys</Text>
+        </View>
+
+
+        <View style={styles.courseCard}>
+          <Text style={styles.courseName}>Cooking</Text>
+          <Text style={styles.courseFee}>Fee: R750</Text>
+          <Text style={styles.courseDescription}>Purpose: To prepare and cook nutritious family meals</Text>
+          <Text style={styles.contentTitle}>Course Content:</Text>
+          <Text style={styles.bulletPoint}>• Nutritional requirements for a healthy body</Text>
+          <Text style={styles.bulletPoint}>• Types of protein, carbohydrates and vegetables</Text>
+          <Text style={styles.bulletPoint}>• Planning meals</Text>
+          <Text style={styles.bulletPoint}>• Tasty and nutritious recipes</Text>
+          <Text style={styles.bulletPoint}>• Preparation and cooking of meals</Text>
+        </View>
+
+
+
+        <View style={styles.courseCard}>
+          <Text style={styles.courseName}>Garden Maintenance</Text>
+          <Text style={styles.courseFee}>Fee: R750</Text>
+          <Text style={styles.courseDescription}>Purpose: 
+          <Text style={styles.contentTitle}>Course Content:</Text>To provide basic knowledge of watering, pruning and planting in a domestic garden</Text>
+          <Text style={styles.bulletPoint}>• Water restrictions and the watering requirements of indigenous and exotic plants</Text>
+          <Text style={styles.bulletPoint}>• Pruning and propagation of plants</Text>
+          <Text style={styles.bulletPoint}>• Planting techniques for different plant types</Text>
+        </View>
     </ScrollView>
   );
 }
@@ -148,7 +220,7 @@ function FeesScreen() {
 
   const courses = [
     { name: 'First Aid', fee: 1500 },
-    { name: 'Life Skills', fee: 750 }
+    { name: 'Child Minding', fee: 750 }
   ];
 
   const subtotal = courses.reduce((sum, course) => sum + course.fee, 0);
@@ -193,9 +265,9 @@ function FeesScreen() {
           <Text style={styles.courseItem}>• First Aid</Text>
           <Text style={styles.courseItem}>• Sewing</Text>
           <Text style={styles.courseItem}>• Landscaping</Text>
+          <Text style={styles.courseItem}>• Life Skills</Text>
           
           <Text style={styles.courseCategory}>6 Month Courses (R750 each):</Text>
-          <Text style={styles.courseItem}>• Life Skills</Text>
           <Text style={styles.courseItem}>• Child Minding</Text>
           <Text style={styles.courseItem}>• Cooking</Text>
           <Text style={styles.courseItem}>• Garden Maintenance</Text>
@@ -208,7 +280,7 @@ function FeesScreen() {
             <Text>R1500</Text>
           </View>
           <View style={styles.priceRow}>
-            <Text>Life Skills:</Text>
+            <Text>Child Minding:</Text>
             <Text>R750</Text>
           </View>
           <View style={styles.priceRow}>
@@ -551,4 +623,12 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: 'bold',
   },
+  aboutText: {
+  fontSize: 14,
+  lineHeight: 20,
+  color: '#444',
+  textAlign: 'justify',
+  marginHorizontal: 10,
+  marginTop: 10,
+},
 });
