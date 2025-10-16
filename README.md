@@ -1,7 +1,7 @@
 # **_WIL-Group3_**
 ## Members:
 ST10443163 – Inge Wessels <br>
-ST10496042 – Iyaka Qwase <br>
+ST10496042 – Iyakha Qwase <br>
 ST10468355 – Liam Roberts <br>
 ST10455643 – Khomotso Molepo<br>
 ST10130105 – Shamaile Rehlamvu <br>
@@ -40,3 +40,4 @@ Prototype link: https://www.figma.com/proto/gENqRR0dqdZOoJxUrt0Iqn/XHAX---Frames
 
 ### Contact page:
 <img width="393" height="1123" alt="Contact" src="https://github.com/user-attachments/assets/17284190-e25e-4ab0-a8d9-03e03a648e08" />
+
