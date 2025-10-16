@@ -319,24 +319,30 @@ function ContactScreen() {
   return (
     <ScrollView style={styles.scrollView} contentContainerStyle={styles.contentContainer}>
       <View style={styles.panel}>
-        <Text style={styles.sectionTitle}>Contact Information</Text>
-        
-        <View style={styles.contactInfo}>
-          <Text style={styles.contactItem}>📧 info@empowering.co.za</Text>
-          <Text style={styles.contactItem}>📞 555-555-5555</Text>
-          <Text style={styles.contactItem}>📱 666-666-6666</Text>
-        </View>
+        <View style={styles.contactContainer}>
+  <Text style={styles.sectionTitle}>Contact Us</Text>
+  <Text style={styles.contactText}>
+    📍 Empowering the Nation Training Centre
+  </Text>
+  <Text style={styles.contactText}>
+    📞 Phone: 011 456 7890
+  </Text>
+  <Text style={styles.contactText}>
+    ✉ Email: info@empoweringthenation.co.za
+  </Text>
 
-        <Text style={styles.subTitle}>Our Locations</Text>
-        <View style={styles.locationBox}>
-          <Text style={styles.locationText}>📍 Main Campus</Text>
-        </View>
-        <View style={styles.locationBox}>
-          <Text style={styles.locationText}>📍 Branch Office 1</Text>
-        </View>
-        <View style={styles.locationBox}>
-          <Text style={styles.locationText}>📍 Branch Office 2</Text>
-        </View>
+  <Text style={styles.contactText}>
+    🏫 Training Venues:
+  </Text>
+  <Text style={styles.contactSubText}>• Soweto Campus – 45 Vilakazi Street</Text>
+  <Text style={styles.contactSubText}>• Sandton Campus – 120 Rivonia Road</Text>
+  <Text style={styles.contactSubText}>• Alexandra Campus – 78 2nd Avenue</Text>
+
+  <TouchableOpacity style={styles.contactButton}>
+    <Text style={styles.buttonText}>Get Directions</Text>
+  </TouchableOpacity>
+</View>
+
 
         <Text style={styles.subTitle}>Send us a Message</Text>
         <TextInput
@@ -618,17 +624,51 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingHorizontal: 10,
   },
-  footerText: {
+footerText: {
     color: '#FFFFFF',
     fontSize: 14,
     fontWeight: 'bold',
   },
-  aboutText: {
+aboutText: {
   fontSize: 14,
   lineHeight: 20,
   color: '#444',
   textAlign: 'justify',
   marginHorizontal: 10,
   marginTop: 10,
+  },
+contactContainer: {
+  backgroundColor: '#e6f5f0',
+  borderRadius: 12,
+  padding: 15,
+  margin: 15,
+  shadowColor: '#000',
+  shadowOpacity: 0.1,
+  shadowRadius: 4,
+  elevation: 3,
 },
+
+contactText: {
+  fontSize: 14,
+  color: '#1b4d3e',
+  marginBottom: 6,
+},
+
+contactSubText: {
+  fontSize: 13,
+  color: '#333',
+  marginLeft: 10,
+  marginBottom: 4,
+},
+
+contactButton: {
+  backgroundColor: '#006994',
+  padding: 10,
+  borderRadius: 8,
+  marginTop: 10,
+  alignItems: 'center',
+},
+buttonText: {
+  textAlign: 'center'
+}
 });
