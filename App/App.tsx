@@ -205,10 +205,11 @@ function CoursesScreen() {
           <Text style={styles.courseFee}>Fee: R750</Text>
           <Text style={styles.courseDescription}>Purpose: 
           <Text style={styles.contentTitle}>Course Content:</Text>To provide basic knowledge of watering, pruning and planting in a domestic garden</Text>
-          <Text style={styles.bulletPoint}>• Water restrictions and the watering requirements of indigenous and exotic plants</Text>
-          <Text style={styles.bulletPoint}>• Pruning and propagation of plants</Text>
-          <Text style={styles.bulletPoint}>• Planting techniques for different plant types</Text>
+          <Text style={styles.bulletPoint}>Water restrictions and the watering requirements of indigenous and exotic plants</Text>
+          <Text style={styles.bulletPoint}>•runing and propagation of plants</Text>
+          <Text style={styles.bulletPoint}>Planting techniques for different plant types</Text>
         </View>
+      </View>
     </ScrollView>
   );
 }
