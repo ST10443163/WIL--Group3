@@ -492,6 +492,87 @@ html {
   font-size: 24px;
   box-shadow: 0 4px 6px rgba(0,0,0,0.2);
 }
+/* Form and Summary Container - Flex layout for side-by-side */
+.form-summary-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    gap: 20px; /* Space between form and summary */
+}
+
+/* Form Box - Left side */
+.form-box {
+    flex: 1;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+/* Summary Box - Right side */
+.summary-box {
+    flex: 0 0 300px; /* Fixed width for summary */
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f0f0f0;
+    position: sticky;
+    top: 20px; /* Sticks to top on scroll */
+}
+
+.summary-box h3 {
+    margin-top: 0;
+}
+
+#course-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+#course-list li {
+    margin-bottom: 5px;
+}
+
+/* Button Styling - Smaller and spaced out */
+#selectAll6MonthBtn, #selectAll6WeekBtn, #clearAllBtn {
+    font-size: 12px; /* Smaller font */
+    padding: 5px 10px; /* Smaller padding */
+    margin: 5px; /* Space between buttons */
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#selectAll6MonthBtn:hover, #selectAll6WeekBtn:hover, #clearAllBtn:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive: Stack on small screens */
+@media (max-width: 768px) {
+    .form-summary-container {
+        flex-direction: column;
+    }
+    .summary-box {
+        flex: none;
+        width: 100%;
+    }
+}
+/* Checkout Button in Summary - Matching Select All Buttons */
+#checkoutBtn {
+    margin-top: 15px;
+    padding: 10px 20px;
+     background-color: #FA4300;
+  color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
 
 
 /*
