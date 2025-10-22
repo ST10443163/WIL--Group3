@@ -1,101 +1,198 @@
 <!DOCTYPE html>
 <html lang="eng">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Empowering | Home</title>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Empowering | Contact</title>
 
-        <!-- ========= LINK CSS FILE (The IIE, 2025) ========= -->
-        <!-- External stylesheet for layout and design (The IIE, 2025) -->
-        <link rel="stylesheet" href="CSS/Styles.css">
-    </head>
+    <!-- Link to your CSS -->
+    <link rel="stylesheet" href="CSS/Styles.css" />
+    <style>
+      /* Basic styling for 3-column layout */
+      .container-contact {
+        display: flex;
+        justify-content: space-between;
+        background-color: #f0f0f0; /* light gray background */
+        padding: 20px;
+        gap: 20px;
+      }
 
-    <!-- ========= BODY SECTION (The IIE, 2025) ========= -->
-    <body>
-    <!-- ========= HERO SECTION / HEADER (The IIE, 2025) ========= -->
+      .box {
+        background-color: white;
+        padding: 15px;
+        box-shadow: 0 0 5px rgba(0,0,0,0.1);
+        flex: 1; /* Equal width columns */
+      }
+
+      /* Vertical stack for the middle maps */
+      .maps-container {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .map {
+        width: 100%;
+        height: 120px; /* map height */
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      /* Contact info styling */
+      .box p {
+        margin: 8px 0;
+      }
+
+      /* Form styling to match screenshot */
+      form h3 {
+        text-align: center;
+        font-weight: bold;
+        margin-bottom: 15px;
+      }
+
+      form input, form textarea {
+        width: 100%;
+        margin: 7px 0;
+        padding: 6px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        font-size: 14px;
+        box-sizing: border-box;
+      }
+
+      form label {
+        display: block;
+        margin-top: 10px;
+        font-size: 13px;
+      }
+
+      form button {
+        margin-top: 15px;
+        width: 100%;
+        background-color: orange;
+        color: black;
+        font-weight: bold;
+        border: none;
+        padding: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+
+      form button:hover {
+        background-color: darkorange;
+      }
+
+    </style>
+</head>
+<body>
+    <!-- Existing header and nav here -->
+
     <header>
-        <!-- Left logo container (The IIE, 2025) -->
-        <div class="left">
-            <img class="left" src="Images/Transparent logo.png" alt="Empowering Logo">
-        </div>
-
-        <!-- Center title and slogan (The IIE, 2025) -->
-        <div class="center">
-            <h1>Empowering the Nation</h1>
-            <p>Skills for a brighter future</p>
-        </div>
-
-        <!-- Right logo container (The IIE, 2025) -->
-        <div class="right">
-            <img class="right" src="Images/Transparent logo.png" alt="Empowering Logo">
-        </div>
+      <div class="left">
+          <img class="left" src="Images/Transparent logo.png" alt="Empowering Logo" />
+      </div>
+      <div class="center">
+          <h1>Empowering the Nation</h1>
+          <p>Skills for a brighter future</p>
+      </div>
+      <div class="right">
+          <img class="right" src="Images/Transparent logo.png" alt="Empowering Logo" />
+      </div>
     </header>
 
-    <!-- ========= NAVIGATION BAR (The IIE, 2025) ========= -->
     <nav>
-        <!-- Navigation links (The IIE, 2025) -->
-        <a href="Home.html">Home</a>
-        <a href="About.html">About</a>
-
-        <!-- Courses dropdown menu (The IIE, 2025) (The IIE, 2025) -->
-        <div class="dropdown">
-            <a href="#">Courses</a>
-            <div class="dropdown-content">
-                <!-- Dropdown links for short and long courses (The IIE, 2025) -->
-                <a href="ShortCourses.html">6-Week Courses</a>
-                <a href="LongCourses.html">6-Month Courses</a>
-            </div>
-        </div>
-
-        <a href="Fees.html">Fees</a>
-        <a href="Contact.html">Contact</a>
+      <a href="Home.html">Home</a>
+      <a href="About.html">About</a>
+      <div class="dropdown">
+          <a href="#">Courses</a>
+          <div class="dropdown-content">
+              <a href="ShortCourses.html">6-Week Courses</a>
+              <a href="LongCourses.html">6-Month Courses</a>
+          </div>
+      </div>
+      <a href="Fees.html">Fees</a>
+      <a href="Contact.html">Contact</a>
     </nav>
 
-        <!--Form & contact info (The IIE, 2025)-->
-        <div class="container-contact">
-            <div class="box">
-                <p>Email: info@empowering.co.za</p>
-                <p>Cell/Whatsapp: 555-666-8888</p>
-                <p>Facebook | Instagram</p>
-            </div>
-
-            <!--Maps (W3schools)-->
-            <div class="box">
-                <div id="googlemaps" style="width: 400px; height: 400px;"></div>
-                
-                <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY&callback=myMap"></script>
-            </div>
-
-            <div class="box">
-                <form>
-                <h3>Message us</h3>
-                <input type="text" placeholder="First name">
-                <input type="text" placeholder="Last name">
-                <input type="email" placeholder="Email">
-                <textarea placeholder="Message"></textarea>
-                <label><input type="checkbox"> Subscribe to mailing list</label>
-                <button type="submit">Submit</button>
-                </form>
-            </div>
+    <!-- Main container with 3 columns -->
+    <div class="container-contact">
+        <!-- Left box: Contact info -->
+        <div class="box">
+            <p>Email: info@empowering.co.za</p>
+            <p>Phone: 555-555-5555</p>
+            <p>Cell/Whatsapp: 666-666-6666</p>
+            <p>Facebook: EmpoweringTheNation</p>
+            <p>Instagram: EmpoweringTheNation.za</p>
         </div>
 
-    <!-- ======= FLOATING CONTACT BUTTON (The IIE, 2025) ======= -->
-    <!-- Floating email icon that allows users to send an email directly (The IIE, 2025) -->
+        <!-- Middle box: 3 maps stacked vertically -->
+        <div class="box maps-container">
+            <div id="map1" class="map"></div>
+            <div id="map2" class="map"></div>
+            <div id="map3" class="map"></div>
+        </div>
+
+        <!-- Right box: Contact form -->
+        <div class="box">
+            <form>
+                <h3>Message us:</h3>
+                <input type="text" name="firstname" placeholder="First name" />
+                <input type="text" name="lastname" placeholder="Last name" />
+                <input type="email" name="email" placeholder="Email" />
+                <textarea name="message" placeholder="Message"></textarea>
+                <label><input type="checkbox" name="subscribe" /> Subscribe to mailing list</label>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Floating contact button -->
     <a href="mailto:info@empowering.co.za" id="contact-float" title="Email us!">✉️</a>
 
-    <!-- ========= FOOTER SECTION (The IIE, 2025) ========= -->
     <footer>
       <p>Contact info + social links</p>
     </footer>
 
-    <!-- ========= LINK JAVASCRIPT FILE (The IIE, 2025) ========= -->
-    <!-- External script for interactivity and button behavior (The IIE, 2025) -->
-    <script src="JS/Script.js"></script>
-  </body>
-</html>
+     
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY"></script>
+  
+    <script>
+      function initializeMaps() {
+        
+        const locations = [
+          {lat: -33.9249, lng: 18.4241}, // Cape Town
+          {lat: -26.2041, lng: 28.0473}, // Johannesburg
+          {lat: -29.8587, lng: 31.0218}  // Durban
+        ];
 
-<!-- ========= REFERENCES ========= -->
-<!-- 
-Referencing:
-- The IIE. 2025. Web Development [WEDE5020 Module Manual]. The Independent Institute of Education: Unpublished.
--->
+        const mapOptions = {
+          zoom: 12,
+          disableDefaultUI: true,
+          scrollwheel: false
+        };
+
+        // Initialize each map
+        locations.forEach((location, index) => {
+          const map = new google.maps.Map(document.getElementById(`map${index + 1}`), {
+            ...mapOptions,
+            center: location
+          });
+
+          new google.maps.Marker({
+            position: location,
+            map: map,
+            title: `Location ${index + 1}`
+          });
+        });
+      }
+
+      // Initialize maps when window loads
+      window.onload = initializeMaps;
+    </script>
+
+    <!-- Link to your own JS -->
+    <script src="Script.js"></script>
+
+</body>
+</html>
