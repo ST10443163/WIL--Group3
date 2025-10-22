@@ -1,94 +1,114 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="eng">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Empowering | Home</title>
-
-        <!-- ========= LINK CSS FILE (The IIE, 2025) ========= -->
-        <!-- External stylesheet for layout and design (The IIE, 2025) -->
+        <!--Linking CSS (The IIE, 2025)-->
         <link rel="stylesheet" href="CSS/Styles.css">
     </head>
 
-    <!-- ========= BODY SECTION (The IIE, 2025) ========= -->
+    <!--Body (The IIE, 2025)-->
     <body>
-    <!-- ========= HERO SECTION / HEADER (The IIE, 2025) ========= -->
-    <header>
-        <!-- Left logo container (The IIE, 2025) -->
-        <div class="left">
-            <img class="left" src="Images/Transparent logo.png" alt="Empowering Logo">
-        </div>
-
-        <!-- Center title and slogan (The IIE, 2025) -->
-        <div class="center">
-            <h1>Empowering the Nation</h1>
-            <p>Skills for a brighter future</p>
-        </div>
-
-        <!-- Right logo container (The IIE, 2025) -->
-        <div class="right">
-            <img class="right" src="Images/Transparent logo.png" alt="Empowering Logo">
-        </div>
-    </header>
-
-    <!-- ========= NAVIGATION BAR (The IIE, 2025) ========= -->
-    <nav>
-        <!-- Navigation links (The IIE, 2025) -->
-        <a href="Home.html">Home</a>
-        <a href="About.html">About</a>
-
-        <!-- Courses dropdown menu (The IIE, 2025) (The IIE, 2025) -->
-        <div class="dropdown">
-            <a href="#">Courses</a>
-            <div class="dropdown-content">
-                <!-- Dropdown links for short and long courses (The IIE, 2025) -->
-                <a href="ShortCourses.html">6-Week Courses</a>
-                <a href="LongCourses.html">6-Month Courses</a>
+        <!--Hero section (The IIE, 2025)-->
+        <header>
+            <!--Logo (The IIE, 2025)-->
+            <div class="left">
+                <img class="left" src="Images/Transparent logo.png" alt="Empowering Logo">
             </div>
-        </div>
 
-        <a href="Fees.html">Fees</a>
-        <a href="Contact.html">Contact</a>
-    </nav>
+            <!--Name & slogan (The IIE, 2025)-->
+            <div class="center">
+               <h1>Empowering the Nation</h1>
+                <p>Skills for a brighter future</p> 
+            </div> 
 
-        <!--Form (The IIE, 2025)-->
-        <div class="container">
-            <div class="box">
+            <!--Logo (The IIE, 2025)-->
+            <div class="right">
+                <img class="right" src="Images/Transparent logo.png" alt="Empowering Logo">
+            </div>
+        </header>
+
+        <!--Navigation bar (The IIE, 2025)-->
+        <nav>
+            <a href="Home.html">Home</a>
+            <a href="About.html">About</a>
+
+            <!--Courses dropdown (The IIE, 2025)-->
+            <div class="dropdown">
+                <a href="#">Courses</a>
+                <div class="dropdown-content">
+                    <a href="ShortCourses.html">6-Week Courses</a>
+                    <a href="LongCourses.html">6-Month Courses</a>
+                </div>
+            </div>
+            
+            <a href="Fees.html">Fees</a>
+            <a href="Contact.html">Contact</a>
+        </nav>
+
+        <!--Form and Summary Container (The IIE, 2025)-->
+        <div class="form-summary-container">
+            <!--Form (The IIE, 2025)-->
+            <div class="form-box">
                 <form id="feesForm">
-                    <h3>Enhance your skills by signing up</h3>
+                    <h3>Enroll in our courses today!</h3>
                     <input type="text" id="name" placeholder="Name" required>
                     <input type="email" id="email" placeholder="Email" required>
                     <input type="text" id="phone" placeholder="Phone">
 
-                    <label><input type="checkbox" value="1500"> First Aid (R1500)</label>
-                    <label><input type="checkbox" value="750"> Life Skills (R750)</label>
-                    <label><input type="checkbox" value="750"> Cooking (R750)</label>
-                    <label><input type="checkbox" value="750"> Garden Maintenance (R750)</label>
+                    <!-- Six-Month Courses Section -->
+                    <h4>Six-Month Courses (R1500 each)</h4>
+                    <button type="button" id="selectAll6MonthBtn">Select All 6-Month Courses</button>
+                    <label><input type="checkbox" class="course-checkbox" value="1500" data-type="6month" data-course="First Aid"> First Aid</label>
+                    <label><input type="checkbox" class="course-checkbox" value="1500" data-type="6month" data-course="Sewing"> Sewing</label>
+                    <label><input type="checkbox" class="course-checkbox" value="1500" data-type="6month" data-course="Landscaping"> Landscaping</label>
+                    <label><input type="checkbox" class="course-checkbox" value="1500" data-type="6month" data-course="Life Skills"> Life Skills</label>
 
-                    <p id="total">Total: R0</p>
-                    <button type="submit">Checkout</button>
+                    <!-- Six-Week Courses Section -->
+                    <h4>Six-Week Courses (R750 each)</h4>
+                    <button type="button" id="selectAll6WeekBtn">Select All 6-Week Courses</button>
+                    <label><input type="checkbox" class="course-checkbox" value="750" data-type="6week" data-course="Child Minding"> Child Minding</label>
+                    <label><input type="checkbox" class="course-checkbox" value="750" data-type="6week" data-course="Cooking"> Cooking</label>
+                    <label><input type="checkbox" class="course-checkbox" value="750" data-type="6week" data-course="Garden Maintenance"> Garden Maintenance</label>
+
+                    <!-- Clear All Button -->
+                    <button type="button" id="clearAllBtn">Clear All</button>
                 </form>
+            </div>
+
+            <!-- Order Summary Box -->
+            <div class="summary-box">
+                <h3>Order Summary</h3>
+                <div id="selected-courses">
+                    <strong>Selected Courses:</strong>
+                    <ul id="course-list">
+                        <li>No courses selected</li>
+                    </ul>
+                </div>
+                <div id="subtotal">Subtotal: R0</div>
+                <div id="discount">Discount: R0 (0%)</div>
+                <div id="total-summary"><strong>Total: R0</strong></div>
+                <button type="submit" id="checkoutBtn" form="feesForm">Checkout</button>
             </div>
         </div>
 
         
-    <!-- ======= FLOATING CONTACT BUTTON (The IIE, 2025) ======= -->
-    <!-- Floating email icon that allows users to send an email directly (The IIE, 2025) -->
-    <a href="mailto:info@empowering.co.za" id="contact-float" title="Email us!">✉️</a>
+<a href="mailto:info@empowering.co.za" id="contact-float" title="Email us!">✉️</a>
 
-    <!-- ========= FOOTER SECTION (The IIE, 2025) ========= -->
-    <footer>
-      <p>Contact info + social links</p>
-    </footer>
 
-    <!-- ========= LINK JAVASCRIPT FILE (The IIE, 2025) ========= -->
-    <!-- External script for interactivity and button behavior (The IIE, 2025) -->
-    <script src="JS/Script.js"></script>
-  </body>
+        <!--Footer (The IIE, 2025)-->
+        <footer>
+            <p>contact info + social links</p>
+        </footer>
+
+        <!--Link JS (The IIE, 2025)-->
+        <script src="JS/Script.js"></script>
+    </body>
 </html>
 
-<!-- ========= REFERENCES ========= -->
-<!-- 
+<!--
 Referencing:
 - The IIE. 2025. Web Development [WEDE5020 Module Manual]. The Independent Institute of Education: Unpublished.
--->
+
