@@ -1,3 +1,100 @@
+
+document.addEventListener('DOMContentLoaded', function() {
+    const checkboxes = document.querySelectorAll('.course-checkbox');
+    const totalDisplay = document.getElementById('total-summary');
+    const subtotalDisplay = document.getElementById('subtotal');
+    const discountDisplay = document.getElementById('discount');
+    const courseList = document.getElementById('course-list');
+    const selectAll6MonthBtn = document.getElementById('selectAll6MonthBtn');
+    const selectAll6WeekBtn = document.getElementById('selectAll6WeekBtn');
+    const clearAllBtn = document.getElementById('clearAllBtn');
+    const form = document.getElementById('feesForm');
+    const checkoutBtn = document.getElementById('checkoutBtn');
+
+    // Function to calculate and update summary
+    function updateSummary() {
+        let subtotal = 0;
+        let selectedCount = 0;
+        const selectedCourses = [];
+
+        checkboxes.forEach(checkbox => {
+            if (checkbox.checked) {
+                subtotal += parseInt(checkbox.value);
+                selectedCount++;
+                selectedCourses.push(checkbox.getAttribute('data-course'));
+            }
+        });
+
+        let discountPercent = 0;
+        if (selectedCount === 2) {
+            discountPercent = 5;
+        } else if (selectedCount === 3) {
+            discountPercent = 10;
+        } else if (selectedCount > 3) {
+            discountPercent = 15;
+        }
+
+        const discountAmount = subtotal * (discountPercent / 100);
+        const discountedTotal = subtotal - discountAmount;
+
+        // Update displays
+        subtotalDisplay.textContent = `Subtotal: R${subtotal.toFixed(2)}`;
+        discountDisplay.textContent = `Discount: R${discountAmount.toFixed(2)} (${discountPercent}%)`;
+        totalDisplay.innerHTML = `<strong>Total: R${discountedTotal.toFixed(2)}</strong>`;
+
+        // Update course list
+        courseList.innerHTML = '';
+        if (selectedCourses.length > 0) {
+            selectedCourses.forEach(course => {
+                const li = document.createElement('li');
+                li.textContent = course;
+                courseList.appendChild(li);
+            });
+        } else {
+            const li = document.createElement('li');
+            li.textContent = 'No courses selected';
+            courseList.appendChild(li);
+        }
+    }
+
+    // Add event listeners to checkboxes for real-time updates
+    checkboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', updateSummary);
+    });
+
+    // Select All 6-Month Courses button
+    selectAll6MonthBtn.addEventListener('click', function() {
+        document.querySelectorAll('.course-checkbox[data-type="6month"]').forEach(checkbox => {
+            checkbox.checked = true;
+        });
+        updateSummary();
+    });
+
+    // Select All 6-Week Courses button
+    selectAll6WeekBtn.addEventListener('click', function() {
+        document.querySelectorAll('.course-checkbox[data-type="6week"]').forEach(checkbox => {
+            checkbox.checked = true;
+        });
+        updateSummary();
+    });
+
+    // Clear All button
+    clearAllBtn.addEventListener('click', function() {
+        checkboxes.forEach(checkbox => {
+            checkbox.checked = false;
+        });
+        updateSummary();
+    });
+
+    // Form submission (from checkout button in summary)
+    checkoutBtn.addEventListener('click', function(event) {
+        event.preventDefault();
+        const totalText = totalDisplay.textContent;
+        alert(`Form submitted! ${totalText}. (In a real app, this would process payment.)`);
+        // Add your actual submission logic here, e.g., send to server
+    });
+});
+
 //Set up total calculator (The IIE, 2025)
 //Wait until DOM (website structure) has fully loaded before running script (The IIE, 2025)
 document.addEventListener("DOMContentLoaded", () => {
@@ -40,3 +137,4 @@ function myMap() {
 Referencing:
 - The IIE. 2025. Web Development [WEDE5020 Module Manual]. The Independent Institute of Education: Unpublished.
 */
+
