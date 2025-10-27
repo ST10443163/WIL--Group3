@@ -133,38 +133,138 @@ function HomeScreen() {
 // Displays detailed course information (The IIE, 2025)
 // ===========================================
 function CoursesScreen() {
+  const sixMonthCourses = [
+    {
+      id: "1",
+      name: "First Aid",
+      fee: "R1500",
+      purpose: "To provide first aid awareness and basic life support",
+      content: [
+        "Wounds and bleeding",
+        "Burns and fractures",
+        "Emergency scene management",
+        "Cardio-Pulmonary Resuscitation (CPR)",
+        "Respiratory distress e.g., Choking, blocked airway",
+      ],
+    },
+    {
+      id: "2",
+      name: "Sewing",
+      fee: "R1500",
+      purpose: "To provide alterations and new garment tailoring services",
+      content: [
+        "Types of stitches",
+        "Threading a sewing machine",
+        "Sewing buttons, zips, hems and seams",
+        "Alterations",
+        "Designing and sewing new garments",
+      ],
+    },
+    {
+      id: "3",
+      name: "Landscaping",
+      fee: "R1500",
+      purpose: "To provide landscaping services for new and established gardens",
+      content: [
+        "Indigenous and exotic plants and trees",
+        "Fixed structures (fountains, statues, benches, tables, built-in braai)",
+        "Balancing of plants and trees in a garden",
+        "Aesthetics of plant shapes and colours",
+        "Garden layout",
+      ],
+    },
+    {
+      id: "4",
+      name: "Life Skills",
+      fee: "R1500",
+      purpose: "To provide skills to navigate basic life necessities",
+      content: [
+        "Opening a bank account",
+        "Basic labour law (know your rights)",
+        "Basic reading and writing literacy",
+        "Basic numeric literacy",
+      ],
+    },
+  ];
+
+  const sixWeekCourses = [
+    {
+      id: "5",
+      name: "Child Minding",
+      fee: "R750",
+      purpose: "To provide basic child and baby care",
+      content: [
+        "Birth to six-month old baby needs",
+        "Seven-month to one year old needs",
+        "Toddler needs",
+        "Educational toys",
+      ],
+    },
+    {
+      id: "6",
+      name: "Cooking",
+      fee: "R750",
+      purpose: "To prepare and cook nutritious family meals",
+      content: [
+        "Nutritional requirements for a healthy body",
+        "Types of protein, carbohydrates and vegetables",
+        "Planning meals",
+        "Preparation and cooking of meals",
+      ],
+    },
+    {
+      id: "7",
+      name: "Garden Maintenance",
+      fee: "R750",
+      purpose: "To provide basic knowledge of watering, pruning and planting in a domestic garden",
+      content: [
+        "Water restrictions and watering requirements of indigenous and exotic plants",
+        "Pruning and propagation of plants",
+        "Planting techniques for different plant types",
+      ],
+    },
+  ];
+
+  const renderCourse = ({ item }) => (
+    <View style={styles.courseCard}>
+      <Text style={styles.courseName}>{item.name}</Text>
+      <Text style={styles.courseFee}>Fee: {item.fee}</Text>
+      <Text style={styles.courseDescription}>{item.purpose}</Text>
+      <Text style={styles.contentTitle}>Course Content:</Text>
+      {item.content.map((point, index) => (
+        <Text key={index} style={styles.bulletPoint}>• {point}</Text>
+      ))}
+    </View>
+  );
+
   return (
     <ScrollView style={styles.scrollView} contentContainerStyle={styles.contentContainer}>
       <View style={styles.panel}>
-        
-        {/* ---------- 6 MONTH COURSES (The IIE, 2025) ---------- */}
         <Text style={styles.sectionTitle}>6 Month Courses</Text>
+        <FlatList
+          data={sixMonthCourses}
+          renderItem={renderCourse}
+          keyExtractor={(item) => item.id}
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          snapToAlignment="center"
+          pagingEnabled
+          decelerationRate="fast"
+          contentContainerStyle={{ paddingBottom: 10 }}
+        />
 
-        {/* Example: First Aid Training (The IIE, 2025) */}
-        <View style={styles.courseCard}>
-          <Text style={styles.courseName}>First Aid Training</Text>
-          <Text style={styles.courseFee}>Fee: R1500</Text>
-          <Text style={styles.courseDescription}>Purpose: To provide first aid awareness and basic life support</Text>
-          <Text style={styles.contentTitle}>Course Content:</Text>
-          <Text style={styles.bulletPoint}>Wounds and bleeding</Text>
-          <Text style={styles.bulletPoint}>Burns and fractures</Text>
-          <Text style={styles.bulletPoint}>Emergency scene management</Text>
-          <Text style={styles.bulletPoint}>CPR and Choking response</Text>
-        </View>
-
-        {/* ---------- 6 WEEK COURSES (The IIE, 2025) ---------- */}
         <Text style={styles.sectionTitle}>6 Week Courses</Text>
-
-        {/* Example: Child Minding (The IIE, 2025) */}
-        <View style={styles.courseCard}>
-          <Text style={styles.courseName}>Child Minding</Text>
-          <Text style={styles.courseFee}>Fee: R750</Text>
-          <Text style={styles.courseDescription}>Purpose: To provide basic child and baby care</Text>
-          <Text style={styles.contentTitle}>Course Content:</Text>
-          <Text style={styles.bulletPoint}>Birth to six-month baby care</Text>
-          <Text style={styles.bulletPoint}>Toddler needs</Text>
-          <Text style={styles.bulletPoint}>Educational toys</Text>
-        </View>
+        <FlatList
+          data={sixWeekCourses}
+          renderItem={renderCourse}
+          keyExtractor={(item) => item.id}
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          snapToAlignment="center"
+          pagingEnabled
+          decelerationRate="fast"
+          contentContainerStyle={{ paddingBottom: 10 }}
+        />
       </View>
     </ScrollView>
   );
@@ -310,7 +410,21 @@ const styles = StyleSheet.create({
   placeholderBox: { height: 100, backgroundColor: '#f0f0f0', borderRadius: 6, borderWidth: 2, borderColor: '#d8b14a', alignItems: 'center', justifyContent: 'center', marginBottom: 16 },
   placeholderText: { color: '#666666', fontStyle: 'italic' },
   courseSummary: { backgroundColor: '#f9f9f9', padding: 12, borderRadius: 6, borderWidth: 1, borderColor: '#d8b14a', marginBottom: 16 },
-  courseCard: { backgroundColor: '#f8f8f8', padding: 16, borderRadius: 8, borderWidth: 2, borderColor: '#d8b14a', marginBottom: 16 },
+  courseCard: { courseCard: {
+  backgroundColor: '#ffffff',
+  borderRadius: 12,
+  borderWidth: 2,
+  borderColor: '#f4b400',
+  padding: 20,
+  marginHorizontal: 12,
+  width: 320,
+  elevation: 5,
+  shadowColor: '#000',
+  shadowOpacity: 0.2,
+  shadowOffset: { width: 0, height: 3 },
+  shadowRadius: 4,
+},
+},
   courseName: { fontSize: 16, fontWeight: 'bold', marginBottom: 8, color: '#333333' },
   courseFee: { fontSize: 14, fontWeight: '600', marginBottom: 4, color: '#2d8a3f' },
   courseDescription: { fontSize: 14, marginBottom: 8, color: '#666666' },
@@ -333,7 +447,11 @@ const styles = StyleSheet.create({
   contactText: { fontSize: 14, color: '#1b4d3e', marginBottom: 6 },
   contactSubText: { fontSize: 13, color: '#333', marginLeft: 10, marginBottom: 4 },
   contactButton: { backgroundColor: '#006994', padding: 10, borderRadius: 8, marginTop: 10, alignItems: 'center' },
-  buttonText: { textAlign: 'center' }
+  buttonText: { textAlign: 'center' },
+  horizontalScroll: {
+  flexDirection: 'row',
+  paddingVertical: 10,
+},
 });
 
 
