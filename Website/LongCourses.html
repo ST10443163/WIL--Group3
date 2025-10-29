@@ -8,6 +8,38 @@
         <!-- ========= LINK CSS FILE (The IIE, 2025) ========= -->
         <!-- External stylesheet for layout and design (The IIE, 2025) -->
         <link rel="stylesheet" href="CSS/Styles.css">
+        
+        <!-- Additional CSS for course images -->
+        <style>
+            .course-list .box {
+                display: flex;
+                align-items: flex-start;
+                gap: 20px;
+            }
+            
+            .course-content {
+                flex: 1;
+            }
+            
+            .course-image {
+                width: 200px;
+                height: 150px;
+                object-fit: cover;
+                border-radius: 8px;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            }
+            
+            @media (max-width: 768px) {
+                .course-list .box {
+                    flex-direction: column;
+                }
+                
+                .course-image {
+                    width: 100%;
+                    height: 200px;
+                }
+            }
+        </style>
     </head>
 
     <!-- ========= BODY SECTION (The IIE, 2025) ========= -->
@@ -61,93 +93,109 @@
 
         <!-- ======= FIRST AID COURSE ======= -->
         <div class="box"> <!-- Box for First Aid course -->
-            <h3>First Aid:</h3> <!-- Course title -->
-            <p>
-                <strong>Fees:</strong> R1500 <!-- Displays the course fee -->
-            </p>
-            <p>
-                <!-- Short description of course purpose -->
-                Purpose: To provide first aid awareness and basic life support
-            </p>
-            <p>
-                <!-- Course content list -->
-                Content:
-                <ul>
-                    <li>Wounds and bleeding</li>
-                    <li>Burns and fractures</li>
-                    <li>Emergency scene management</li>
-                    <li>Cardio-Pulmonary Resuscitation (CPR)</li>
-                    <li>Respiratory distress e.g., Choking, blocked airway</li>
-                </ul>
-            </p>
+            <div class="course-content">
+                <h3>First Aid:</h3> <!-- Course title -->
+                <p>
+                    <strong>Fees:</strong> R1500 <!-- Displays the course fee -->
+                </p>
+                <p>
+                    <!-- Short description of course purpose -->
+                    Purpose: To provide first aid awareness and basic life support
+                </p>
+                <p>
+                    <!-- Course content list -->
+                    Content:
+                    <ul>
+                        <li>Wounds and bleeding</li>
+                        <li>Burns and fractures</li>
+                        <li>Emergency scene management</li>
+                        <li>Cardio-Pulmonary Resuscitation (CPR)</li>
+                        <li>Respiratory distress e.g., Choking, blocked airway</li>
+                    </ul>
+                </p>
+            </div>
+            <!-- AI-generated image for First Aid course -->
+            <img src="Images/emergency-first-aid-kit-medical-emergency-supplies-for-health-care-and-safety-isolated-for-rescue-and-treatment-support-photo.jpg" alt="First Aid Training" class="course-image">
         </div>
 
         <!-- ======= SEWING COURSE ======= -->
         <div class="box"> <!-- Box for Sewing course -->
-            <h3>Sewing:</h3> <!-- Course title -->
-            <p>
-                <strong>Fees:</strong> R1500 <!-- Displays the course fee -->
-            </p>
-            <p>
-                <!-- Short description of course purpose -->
-                Purpose: To provide alterations and new garment tailoring services
-            </p>
-            <p>
-                <!-- Course content list -->
-                Content:
-                <ul>
-                    <li>Types of stitches</li>
-                    <li>Threading a sewing machine</li>
-                    <li>Sewing buttons, zips, hems and seams</li>
-                    <li>Alterations</li>
-                    <li>Designing and sewing new garments</li>
-                </ul>
-            </p>
+            <div class="course-content">
+                <h3>Sewing:</h3> <!-- Course title -->
+                <p>
+                    <strong>Fees:</strong> R1500 <!-- Displays the course fee -->
+                </p>
+                <p>
+                    <!-- Short description of course purpose -->
+                    Purpose: To provide alterations and new garment tailoring services
+                </p>
+                <p>
+                    <!-- Course content list -->
+                    Content:
+                    <ul>
+                        <li>Types of stitches</li>
+                        <li>Threading a sewing machine</li>
+                        <li>Sewing buttons, zips, hems and seams</li>
+                        <li>Alterations</li>
+                        <li>Designing and sewing new garments</li>
+                    </ul>
+                </p>
+            </div>
+            <!-- AI-generated image for Sewing course -->
+            <img src="Images/person-sewing-blue-fabric-free-photo.jpg" alt="Sewing and Tailoring" class="course-image">
         </div>
 
         <!-- ======= LANDSCAPING COURSE ======= -->
         <div class="box"> <!-- Box for Landscaping course -->
-            <h3>Landscaping:</h3> <!-- Course title -->
-            <p>
-                <strong>Fees:</strong> R1500 <!-- Displays the course fee -->
-            </p>
-            <p>
-                <!-- Short description of course purpose -->
-            Purpose: To provide landscaping services for new and established gardens
-            </p>
-            <p>
-                <!-- Course content list -->
-                Content:
-                <ul>
-                    <li>Indigenous and exotic plants and trees</li>
-                    <li>Fixed structures (fountains, statues, benches, tables, built-in braai)</li>
-                    <li>Balancing of plants and trees in a garden</li>
-                    <li>Aesthetics of plant shapes and colors</li>
-                    <li>Garden layout</li>
-                </ul>
-            </p>
+            <div class="course-content">
+                <h3>Landscaping:</h3> <!-- Course title -->
+                <p>
+                    <strong>Fees:</strong> R1500 <!-- Displays the course fee -->
+                </p>
+                <p>
+                    <!-- Short description of course purpose -->
+                    Purpose: To provide landscaping services for new and established gardens
+                </p>
+                <p>
+                    <!-- Course content list -->
+                    Content:
+                    <ul>
+                        <li>Indigenous and exotic plants and trees</li>
+                        <li>Fixed structures (fountains, statues, benches, tables, built-in braai)</li>
+                        <li>Balancing of plants and trees in a garden</li>
+                        <li>Aesthetics of plant shapes and colors</li>
+                        <li>Garden layout</li>
+                    </ul>
+                </p>
+            </div>
+            <!-- AI-generated image for Landscaping course -->
+            <img src="Images/gardener-works-in-autumn-garden-free-photo.jpg" alt="Garden Landscaping" class="course-image">
         </div>
 
         <!-- ======= LIFE SKILLS COURSE ======= -->
         <div class="box"> <!-- Box for Life Skills course -->
-            <h3>Life Skills:</h3> <!-- Course title -->
-            <p>
-                <strong>Fees:</strong> R1500 <!-- Displays the course fee -->
-            </p>
-            <p>
-                <!-- Short description of course purpose -->
-                Purpose: To provide skills to navigate basic life necessities
-            </p>
-            <p>
-                <!-- Course content list -->
-                Content:
-                <ul>
-                    <li>Opening a bank account</li>
-                    <li>Basic labour law (know your rights)</li>
-                    <li>Basic reading and writing literacy</li>
-                    <li>Basic numeric literacy</li>
-                </ul>
-            </p>
+            <div class="course-content">
+                <h3>Life Skills:</h3> <!-- Course title -->
+                <p>
+                    <strong>Fees:</strong> R1500 <!-- Displays the course fee -->
+                </p>
+                <p>
+                    <!-- Short description of course purpose -->
+                    Purpose: To provide skills to navigate basic life necessities
+                </p>
+                <p>
+                    <!-- Course content list -->
+                    Content:
+                    <ul>
+                        <li>Opening a bank account</li>
+                        <li>Basic labour law (know your rights)</li>
+                        <li>Basic reading and writing literacy</li>
+                        <li>Basic numeric literacy</li>
+                    </ul>
+                </p>
+            </div>
+            <!-- AI-generated image for Life Skills course -->
+            <img src="Images/Untitled-design-1-1024x576.jpg" alt="Life Skills Training" class="course-image">
         </div>
     </div>
 
