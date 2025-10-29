@@ -16,3 +16,21 @@ We made sure that we create user-friendly user interface designs. This includes 
 
 **Error Fixes**
 Some code and design-related errors were spotted and resolved, improving stability and making sure that the app and website both function smoothly across different components.
+
+**Home & About Page**
+The layout of the home and about page was refined and is now more pleasing and cleaner to the eye.
+
+**Fees & Contact Page**
+
+There were a few changes made to the fees and contact pages, these include the following:
+- A select all button for the six month courses
+- A select all button for the six week courses
+- A clear all button
+
+There's a new block which allows users to see the selected courses, the sub-total, the total, and the discount if it is applicable.
+
+**We also made better use of white space by doing the following:**
+
+- Adding social-media information and contact details to the left of the page on the contact page.
+- In the middle of the contact page we put 3 interactive maps, each displaying 3 different locations of Empowering The Nation.
+- On the right of the contact page we inserted a form that allows the user to iput their details and submit it through in order to further contact us easily as well as having the opportunity of subscribing to our mailing list
