@@ -16,6 +16,26 @@ import {
   FlatList 
 } from "react-native";
 
+// Define TypeScript interfaces
+interface Course {
+  id: string;
+  name: string;
+  fee: number;
+  purpose: string;
+  content: string[];
+}
+
+interface CourseData {
+  [key: string]: {
+    name: string;
+    fee: number;
+  };
+}
+
+interface SelectedCourses {
+  [key: string]: boolean;
+}
+
 // Define available screen types for navigation (The IIE, 2025)
 type ScreenType = 'Home' | 'Courses' | 'Fees' | 'Contact';
 
@@ -134,11 +154,11 @@ function HomeScreen() {
 // Displays detailed course information (The IIE, 2025)
 // ===========================================
 function CoursesScreen() {
-  const sixMonthCourses = [
+  const sixMonthCourses: Course[] = [
     {
       id: "1",
       name: "First Aid",
-      fee: "R1500",
+      fee: 1500,
       purpose: "To provide first aid awareness and basic life support",
       content: [
         "Wounds and bleeding",
@@ -151,7 +171,7 @@ function CoursesScreen() {
     {
       id: "2",
       name: "Sewing",
-      fee: "R1500",
+      fee: 1500,
       purpose: "To provide alterations and new garment tailoring services",
       content: [
         "Types of stitches",
@@ -164,7 +184,7 @@ function CoursesScreen() {
     {
       id: "3",
       name: "Landscaping",
-      fee: "R1500",
+      fee: 1500,
       purpose: "To provide landscaping services for new and established gardens",
       content: [
         "Indigenous and exotic plants and trees",
@@ -177,7 +197,7 @@ function CoursesScreen() {
     {
       id: "4",
       name: "Life Skills",
-      fee: "R1500",
+      fee: 1500,
       purpose: "To provide skills to navigate basic life necessities",
       content: [
         "Opening a bank account",
@@ -188,11 +208,11 @@ function CoursesScreen() {
     },
   ];
 
-  const sixWeekCourses = [
+  const sixWeekCourses: Course[] = [
     {
       id: "5",
       name: "Child Minding",
-      fee: "R750",
+      fee: 750,
       purpose: "To provide basic child and baby care",
       content: [
         "Birth to six-month old baby needs",
@@ -204,7 +224,7 @@ function CoursesScreen() {
     {
       id: "6",
       name: "Cooking",
-      fee: "R750",
+      fee: 750,
       purpose: "To prepare and cook nutritious family meals",
       content: [
         "Nutritional requirements for a healthy body",
@@ -216,7 +236,7 @@ function CoursesScreen() {
     {
       id: "7",
       name: "Garden Maintenance",
-      fee: "R750",
+      fee: 750,
       purpose: "To provide basic knowledge of watering, pruning and planting in a domestic garden",
       content: [
         "Water restrictions and watering requirements of indigenous and exotic plants",
@@ -226,13 +246,13 @@ function CoursesScreen() {
     },
   ];
 
-  const renderCourse = ({ item }) => (
+  const renderCourse = ({ item }: { item: Course }) => (
     <View style={styles.courseCard}>
       <Text style={styles.courseName}>{item.name}</Text>
-      <Text style={styles.courseFee}>Fee: {item.fee}</Text>
+      <Text style={styles.courseFee}>Fee: R{item.fee}</Text>
       <Text style={styles.courseDescription}>{item.purpose}</Text>
       <Text style={styles.contentTitle}>Course Content:</Text>
-      {item.content.map((point, index) => (
+      {item.content.map((point: string, index: number) => (
         <Text key={index} style={styles.bulletPoint}>• {point}</Text>
       ))}
     </View>
@@ -245,7 +265,7 @@ function CoursesScreen() {
         <FlatList
           data={sixMonthCourses}
           renderItem={renderCourse}
-          keyExtractor={(item) => item.id}
+          keyExtractor={(item: Course) => item.id}
           horizontal
           showsHorizontalScrollIndicator={false}
           snapToAlignment="center"
@@ -258,7 +278,7 @@ function CoursesScreen() {
         <FlatList
           data={sixWeekCourses}
           renderItem={renderCourse}
-          keyExtractor={(item) => item.id}
+          keyExtractor={(item: Course) => item.id}
           horizontal
           showsHorizontalScrollIndicator={false}
           snapToAlignment="center"
@@ -277,12 +297,12 @@ function CoursesScreen() {
 // ===========================================
 function FeesScreen() { 
   // Input states for user form fields (The IIE, 2025)
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState('');
+  const [name, setName] = useState<string>('');
+  const [email, setEmail] = useState<string>('');
+  const [phone, setPhone] = useState<string>('');
 
   // Course selection states with checkboxes (The IIE, 2025)
-  const [selectedCourses, setSelectedCourses] = useState({
+  const [selectedCourses, setSelectedCourses] = useState<SelectedCourses>({
     // Six Month Courses (The IIE, 2025)
     firstAid: false,
     sewing: false,
@@ -295,7 +315,7 @@ function FeesScreen() {
   });
 
   // Course data with fees (The IIE, 2025)
-  const courseData = {
+  const courseData: CourseData = {
     // Six Month Courses - R1500 each (The IIE, 2025)
     firstAid: { name: 'First Aid', fee: 1500 },
     sewing: { name: 'Sewing', fee: 1500 },
@@ -308,7 +328,7 @@ function FeesScreen() {
   };
 
   // Toggle course selection (The IIE, 2025)
-  const toggleCourse = (courseKey) => {
+  const toggleCourse = (courseKey: string) => {
     setSelectedCourses(prev => ({
       ...prev,
       [courseKey]: !prev[courseKey]
@@ -316,7 +336,7 @@ function FeesScreen() {
   };
 
   // Calculate discount based on number of courses selected (The IIE, 2025)
-  const calculateDiscount = (courseCount) => {
+  const calculateDiscount = (courseCount: number): number => {
     if (courseCount >= 4) return 0.15; // 15% for more than 3 courses (The IIE, 2025)
     if (courseCount === 3) return 0.10; // 10% for 3 courses (The IIE, 2025)
     if (courseCount === 2) return 0.05; // 5% for 2 courses (The IIE, 2025)
@@ -325,7 +345,7 @@ function FeesScreen() {
 
   // Calculate totals dynamically (The IIE, 2025)
   const selectedCourseCount = Object.values(selectedCourses).filter(Boolean).length;
-  const subtotal = Object.keys(selectedCourses).reduce((sum, courseKey) => {
+  const subtotal = Object.keys(selectedCourses).reduce((sum: number, courseKey: string) => {
     return selectedCourses[courseKey] ? sum + courseData[courseKey].fee : sum;
   }, 0);
   const discountRate = calculateDiscount(selectedCourseCount);
@@ -341,6 +361,14 @@ function FeesScreen() {
 
   // Alert confirmation for "Enroll" action (The IIE, 2025)
   const handleEnroll = () => {
+    if (selectedCourseCount === 0) {
+      Alert.alert('Error', 'Please select at least one course');
+      return;
+    }
+    if (!name || !email || !phone) {
+      Alert.alert('Error', 'Please fill in all required fields');
+      return;
+    }
     Alert.alert('Success', 'Enrollment Submitted!');
   };
 
@@ -359,7 +387,7 @@ function FeesScreen() {
         
         {/* Six Month Courses Section (The IIE, 2025) */}
         <Text style={styles.courseCategory}>6 Month Courses (R1500 each)</Text>
-        {Object.keys(courseData).filter(key => courseData[key].fee === 1500).map((courseKey) => (
+        {Object.keys(courseData).filter(key => courseData[key].fee === 1500).map((courseKey: string) => (
           <TouchableOpacity 
             key={courseKey}
             style={styles.checkboxContainer}
@@ -374,7 +402,7 @@ function FeesScreen() {
 
         {/* Six Week Courses Section (The IIE, 2025) */}
         <Text style={styles.courseCategory}>6 Week Courses (R750 each)</Text>
-        {Object.keys(courseData).filter(key => courseData[key].fee === 750).map((courseKey) => (
+        {Object.keys(courseData).filter(key => courseData[key].fee === 750).map((courseKey: string) => (
           <TouchableOpacity 
             key={courseKey}
             style={styles.checkboxContainer}
@@ -406,19 +434,23 @@ function FeesScreen() {
           )}
 
           {/* Subtotal, discount, total (The IIE, 2025) */}
-          <View style={styles.priceDivider} />
-          <View style={styles.priceRow}>
-            <Text>Subtotal:</Text>
-            <Text>R{subtotal}</Text>
-          </View>
-          <View style={styles.priceRow}>
-            <Text>Discount ({discountRate * 100}%):</Text>
-            <Text>R{discountAmount.toFixed(2)}</Text>
-          </View>
-          <View style={styles.priceRow}>
-            <Text style={styles.boldText}>Total:</Text>
-            <Text style={styles.boldText}>R{total.toFixed(2)}</Text>
-          </View>
+          {selectedCourseCount > 0 && (
+            <>
+              <View style={styles.priceDivider} />
+              <View style={styles.priceRow}>
+                <Text>Subtotal:</Text>
+                <Text>R{subtotal.toFixed(2)}</Text>
+              </View>
+              <View style={styles.priceRow}>
+                <Text>Discount ({Math.round(discountRate * 100)}%):</Text>
+                <Text>-R{discountAmount.toFixed(2)}</Text>
+              </View>
+              <View style={styles.priceRow}>
+                <Text style={styles.boldText}>Total:</Text>
+                <Text style={styles.boldText}>R{total.toFixed(2)}</Text>
+              </View>
+            </>
+          )}
         </View>
 
         {/* ---------- ENROLL BUTTON (The IIE, 2025) ---------- */}
@@ -436,14 +468,18 @@ function FeesScreen() {
 // ===========================================
 function ContactScreen() {
   // Form field states (The IIE, 2025)
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [email, setEmail] = useState('');
-  const [message, setMessage] = useState('');
-  const [subscribe, setSubscribe] = useState(false); // Newsletter toggle (The IIE, 2025)
+  const [firstName, setFirstName] = useState<string>('');
+  const [lastName, setLastName] = useState<string>('');
+  const [email, setEmail] = useState<string>('');
+  const [message, setMessage] = useState<string>('');
+  const [subscribe, setSubscribe] = useState<boolean>(false); // Newsletter toggle (The IIE, 2025)
 
   // Simple confirmation alert when form is submitted (The IIE, 2025)
   const handleSubmit = () => {
+    if (!firstName || !lastName || !email || !message) {
+      Alert.alert('Error', 'Please fill in all fields');
+      return;
+    }
     Alert.alert('Success', 'Message Sent!');
   };
 
@@ -497,7 +533,7 @@ const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: '#FFBB00' }, // Full-screen container (The IIE, 2025)
   topbar: { height: 80, backgroundColor: '#64B2DE', alignItems: 'center', justifyContent: 'center', paddingHorizontal: 10 },
   logoText: { fontSize: 20, fontWeight: 'bold', color: '#FFFFFF', textAlign: 'center' },
-  logo: {},
+  logo: { width: 50, height: 50 },
   navRow: { flexDirection: 'row', backgroundColor: '#6DB436', paddingVertical: 10 },
   navButton: { flex: 1, alignItems: 'center', paddingVertical: 8 },
   navActive: { borderBottomWidth: 3, borderBottomColor: '#333333' }, // Highlight active tab (The IIE, 2025)
@@ -529,7 +565,7 @@ const styles = StyleSheet.create({
   courseName: { fontSize: 16, fontWeight: 'bold', marginBottom: 8, color: '#333333' },
   courseFee: { fontSize: 14, fontWeight: '600', marginBottom: 4, color: '#2d8a3f' },
   courseDescription: { fontSize: 14, marginBottom: 8, color: '#666666' },
-  courseItem: {},
+  courseItem: { fontSize: 14, marginBottom: 4, color: '#333333' },
   contentTitle: { fontSize: 14, fontWeight: 'bold', marginBottom: 6, color: '#333333' },
   bulletPoint: { fontSize: 14, marginLeft: 8, marginBottom: 2, color: '#666666' },
   input: { borderWidth: 1, borderColor: '#cccccc', borderRadius: 6, padding: 12, marginBottom: 12, fontSize: 16, backgroundColor: '#ffffff' },
@@ -549,7 +585,7 @@ const styles = StyleSheet.create({
   contactText: { fontSize: 14, color: '#1b4d3e', marginBottom: 6 },
   contactSubText: { fontSize: 13, color: '#333', marginLeft: 10, marginBottom: 4 },
   contactButton: { backgroundColor: '#006994', padding: 10, borderRadius: 8, marginTop: 10, alignItems: 'center' },
-  buttonText: { textAlign: 'center' },
+  buttonText: { textAlign: 'center', color: '#FFFFFF', fontWeight: 'bold' },
   horizontalScroll: {
     flexDirection: 'row',
     paddingVertical: 10,
@@ -606,8 +642,3 @@ const styles = StyleSheet.create({
     width: '100%'
   }
 });
-
-/*
-Referencing:
-- The IIE. 2025. Web Development [WEDE5020 Module Manual]. The Independent Institute of Education: Unpublished.
-*/
