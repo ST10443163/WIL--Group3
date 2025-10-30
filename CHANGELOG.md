@@ -34,3 +34,10 @@ There's a new block which allows users to see the selected courses, the sub-tota
 - Adding social-media information and contact details to the left of the page on the contact page.
 - In the middle of the contact page we put 3 interactive maps, each displaying 3 different locations of Empowering The Nation.
 - On the right of the contact page we inserted a form that allows the user to iput their details and submit it through in order to further contact us easily as well as having the opportunity of subscribing to our mailing list
+
+**h3** tags were updated to **h2** for main section headings to improve readability and accessibility
+**p** elements were replaced with **blockquote** elements for testimonials to make them semantically correct and easier for screen readers.
+
+A "Back to Top" button was added to improve navigation and then later it was removed and replaced with a floating "Quick Contact"(mail icon) button.
+
+Course information for both the website and the mobile application was updated to ensure that they have consistency and accuracy.
