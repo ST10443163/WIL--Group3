@@ -1,4 +1,4 @@
-
+a
 
 
 # Empowering the Nation: Skills for a Brighter Future
@@ -55,20 +55,25 @@ Empowering the Nation is a comprehensive digital platform consisting of a websit
 
 ### Home Screen
 - **Description:** Mobile-friendly landing screen with intuitive navigation, organization branding, and quick access to key features.
-- **Image:** ![App Home Screen](app-screenshots/home-screen.png)
+- **Image:** <img width="446" height="788" alt="image" src="https://github.com/user-attachments/assets/da2d0eba-639c-4db0-aedc-0d45598ac203" />
+
 
 ### Courses Screen
 - **Description:** Optimized mobile view of course offerings with easy scrolling and clear categorization of short courses vs. learnership programs.
-- **Image:** ![App Courses Screen](app-screenshots/courses-screen.png)
+- **Image:** <img width="443" height="790" alt="image" src="https://github.com/user-attachments/assets/34004e08-efe4-4ef3-8705-bad997c73faa" />
+
 
 ### Fees Screen
 - **Description:** Mobile-optimized pricing display with interactive discount calculator and streamlined quote request process.
-- **Image:** ![App Fees Screen](app-screenshots/fees-screen.png)
+- **Image:** <img width="444" height="789" alt="image" src="https://github.com/user-attachments/assets/e0690020-9a9b-4f84-a83d-ad6300c5c2d7" />
+
 
 ### Contact Screen
 - **Description:** Simple contact form and business information designed for mobile users with tap-to-call and easy form submission.
-- **Image:** ![App Contact Screen](app-screenshots/contact-screen.png)
+- **Image:** <img width="445" height="789" alt="image" src="https://github.com/user-attachments/assets/22dd28a8-8774-4d44-8b40-2c6b93b2723f" />
+
 
 ---
 
 *Empowering domestic workers and gardeners through skills development since 2022.*
+
